@@ -45,7 +45,6 @@ class TestClass(object):
         """
         with open(json_file_path) as f:
             data = json.load(f)
-        fp = StringIO()
         with open(outfile_path, 'w') as fp:
             if fieldnames == null:
                 fieldnames = ["Child's First Name", "Ethnicity",
