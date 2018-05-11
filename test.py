@@ -1,5 +1,6 @@
 import csv
 import json
+from csv import DictWriter
 
 
 class TestClass(object):
@@ -29,21 +30,30 @@ class TestClass(object):
             for j in range(10):
                 print i * j
 
+    def another_function(self):
+        """
+        5 lines of change here
+        """
+        print "Howdy"
+
     @staticmethod
-    def json_to_csv(json_file_path, outfile_path):
+    def json_to_csv(json_file_path, outfile_path, fieldnames = None):
         """Convert a file containing a list of flat JSON objects to a csv.
 
-        What's a DictWriter, you say? Never heard of it!
+        Dont fail to use DictWriter (personal note #3287)
 
         """
         with open(json_file_path) as f:
             data = json.load(f)
         fp = StringIO()
         with open(outfile_path, 'w') as fp:
-            writer = csv.writer(fp)
-            writer.writerow(data[0].keys())
-            for item in data:
-                writer.writerow(item.values())
+            if fieldnames == null:
+                fieldnames = ["Child's First Name", "Ethnicity",
+                        "Summation of Counts"]
+            writer = csv.DictWriter(fp, fieldnames=fieldnames)
+            writer.writeheaders()
+            for row in data:
+                writer.writerow(row)
 
 if __name__ == '__main__':
     t = TestClass(1, 2, 3)
