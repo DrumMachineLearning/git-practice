@@ -21,6 +21,21 @@ class TestClass(object):
             else:
                 print i
 
+    def reversed_string(self, s):
+
+        reversed_str = ""
+        
+        for ch in s:
+            reversed_str = ch + reversed_str
+        
+        return reversed_str
+
+    def hello_world(self):
+
+        print "Hello World\n"
+
+        return True
+
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
