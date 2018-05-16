@@ -21,6 +21,22 @@ class TestClass(object):
             else:
                 print i
 
+    @staticmethod
+    def is_number(st_obj):
+        """Verifies whether the string is a Number (Including Decimals)
+
+        :param obj:
+        :return:
+        """
+        if st_obj.isdigit():
+            return int(st_obj)
+        else:
+            try:
+                return float(st_obj)
+            except ValueError:
+                return False
+
+
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
