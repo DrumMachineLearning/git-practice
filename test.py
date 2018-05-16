@@ -1,5 +1,6 @@
 import csv
 import json
+from itertools import permutations
 
 
 class TestClass(object):
@@ -13,13 +14,13 @@ class TestClass(object):
         for i in range(1, 100):
             if i % digit_1 == 0:
                 if i % digit_2 == 0:
-                    print 'fizzbuzz!'
+                    print('fizzbuzz!')
                 else:
-                    print 'fizz!'
+                    print('fizz!')
             elif i % digit_2 == 0:
-                print 'buzz!'
+                print('buzz!')
             else:
-                print i
+                print(i)
 
     @staticmethod
     def is_number(st_obj):
@@ -35,6 +36,19 @@ class TestClass(object):
                 return float(st_obj)
             except ValueError:
                 return False
+
+    @staticmethod
+    def permutations(st):
+        """Method returns all Permutations of a string
+        :param st:
+        :return:
+        """
+        perms = []
+
+        for i in range(1, len(st) + 1):
+            for c in permutations(st, i):
+                perms.append("".join(c))
+        return perms
 
 
     def json_to_csv(self, json_file_path, outfile_path):
