@@ -1,5 +1,7 @@
 import csv
 import json
+from itertools import permutations
+
 from StringIO import StringIO
 
 class TestClass(object):
@@ -36,6 +38,19 @@ class TestClass(object):
                 return float(st_obj)
             except ValueError:
                 return False
+
+    @staticmethod
+    def permutations(st):
+        """Method returns all Permutations of a string
+        :param st:
+        :return:
+        """
+        perms = []
+
+        for i in range(1, len(st) + 1):
+            for c in permutations(st, i):
+                perms.append("".join(c))
+        return perms
 
 
     def oh_this_is_trouble(self, param1, param2):
