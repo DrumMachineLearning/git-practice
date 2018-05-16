@@ -1,5 +1,6 @@
 import csv
 import json
+from itertools import permutations
 
 
 class TestClass(object):
@@ -9,7 +10,8 @@ class TestClass(object):
         self.bar = bar
         self.baz = baz
 
-    def fizz_buzz(self, digit_1, digit_2):
+    @staticmethod
+    def fizz_buzz(digit_1, digit_2):
         for i in range(1, 100):
             if i % digit_1 == 0:
                 if i % digit_2 == 0:
@@ -21,7 +23,45 @@ class TestClass(object):
             else:
                 print i
 
-    def json_to_csv(self, json_file_path, outfile_path):
+    @staticmethod
+    def is_number(st_obj):
+        """Verifies whether the string is a Number (Including Decimals)
+
+        :param obj:
+        :return:
+        """
+        if st_obj.isdigit():
+            return int(st_obj)
+        else:
+            try:
+                return float(st_obj)
+            except ValueError:
+                return False
+
+    @staticmethod
+    def permutations(st):
+        """Method returns all Permutations of a string
+        :param st:
+        :return:
+        """
+        perms = []
+
+        for i in range(1, len(st) + 1):
+            for c in permutations(st, i):
+                perms.append("".join(c))
+        return perms
+
+
+    def oh_this_is_trouble(self, param1, param2):
+        """Oh man this fucntion is trouble"""
+        for i in range(20):
+            print 'trouble' + i * '!'
+            for j in range(10):
+                print i * j
+
+
+    @staticmethod
+    def json_to_csv(json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
         What's a DictWriter, you say? Never heard of it!
@@ -29,8 +69,13 @@ class TestClass(object):
         """
         with open(json_file_path) as f:
             data = json.load(f)
+        fp = StringIO()
         with open(outfile_path, 'w') as fp:
             writer = csv.writer(fp)
             writer.writerow(data[0].keys())
             for item in data:
                 writer.writerow(item.values())
+
+if __name__ == '__main__':
+    t = TestClass(1, 2, 3)
+    TestClass.fizz_buzz(3, 5)
