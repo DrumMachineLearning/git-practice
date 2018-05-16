@@ -22,6 +22,22 @@ class TestClass(object):
             else:
                 print i
 
+    @staticmethod
+    def is_number(st_obj):
+        """Verifies whether the string is a Number (Including Decimals)
+
+        :param obj:
+        :return:
+        """
+        if st_obj.isdigit():
+            return int(st_obj)
+        else:
+            try:
+                return float(st_obj)
+            except ValueError:
+                return False
+
+
     def oh_this_is_trouble(self, param1, param2):
         """Oh man this fucntion is trouble"""
         for i in range(20):
