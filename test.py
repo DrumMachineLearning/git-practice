@@ -21,6 +21,9 @@ class TestClass(object):
             else:
                 print i
 
+    def fizz_buzz_to_json(self, howdy):
+        print howdy
+
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
