@@ -21,16 +21,23 @@ class TestClass(object):
             else:
                 print i
 
+    def fizz_buzz_to_json(self, howdy):
+        print howdy
+
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
-        What's a DictWriter, you say? Never heard of it!
+        Let's try to use DictWriter
 
         """
+        fieldnames = ["Child's First Name", 'Summation of Counts', 'Ethnicity']
         with open(json_file_path) as f:
             data = json.load(f)
         with open(outfile_path, 'w') as fp:
-            writer = csv.writer(fp)
-            writer.writerow(data[0].keys())
-            for item in data:
-                writer.writerow(item.values())
+            writer = csv.DictWriter(fp, fieldnames = fieldnames)
+            writer.writeheader()
+            for row in data:
+                writer.writerow(row)
+
+tc = TestClass('O','M','G')
+tc.json_to_csv('../../Summary_data.json', '../../converted_summary_data.csv')
