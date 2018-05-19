@@ -37,7 +37,7 @@ class TestClass(object):
         print "Howdy"
 
     @staticmethod
-    def json_to_csv(json_file_path, outfile_path, fieldnames = None):
+    def json_to_csv(self, json_file_path, outfile_path, fieldnames = None):
         """Convert a file containing a list of flat JSON objects to a csv.
 
         Dont fail to use DictWriter (personal note #3287)
