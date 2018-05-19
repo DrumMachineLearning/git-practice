@@ -24,7 +24,7 @@ class TestClass(object):
                 print i
 
     def oh_this_is_trouble(self, param1, param2):
-        """Oh man this fucntion is trouble"""
+        """Oh man this function is trouble"""
         for i in range(20):
             print 'trouble' + i * '!'
             for j in range(10):
