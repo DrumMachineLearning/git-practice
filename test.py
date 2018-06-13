@@ -3,6 +3,9 @@ import json
 
 
 class TestClass(object):
+    """
+    Create TestClass for Apple Interview
+    """
 
     def __init__(self, foo, bar, baz):
         self.foo = foo
