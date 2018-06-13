@@ -3,6 +3,9 @@ import json
 
 
 class TestClass(object):
+    """
+    Create TestClass for Apple Interview
+    """
 
     def __init__(self, foo, bar, baz):
         self.foo = foo
@@ -20,6 +23,12 @@ class TestClass(object):
                 print 'buzz!'
             else:
                 print i
+
+    def validate(self):
+        if self.foo is None:
+            raise RuntimeError("foo can not be None")
+        if self.bar is None:
+            raise RuntimeError("bar can not be None")
 
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
