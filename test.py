@@ -29,8 +29,13 @@ class TestClass(object):
             for j in range(10):
                 print i * j
 
-    @staticmethod
-    def json_to_csv(json_file_path, outfile_path):
+    def validate(self):
+        if self.foo is None:
+            raise RuntimeError("foo can not be None")
+        if self.bar is None:
+            raise RuntimeError("bar can not be None")
+
+    def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
         What's a DictWriter, you say? Never heard of it!
