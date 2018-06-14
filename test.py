@@ -21,6 +21,21 @@ class TestClass(object):
             else:
                 print i
 
+    def my_first_method():
+        j = []
+        k=10
+        for i in range(1, 100):
+                j.append(i+k)
+        print j
+
+    def my_second_method():
+        j = []
+        k=10
+        for i in range(1, 100):
+                j.append(i-k)
+        print j
+    
+
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
@@ -34,3 +49,7 @@ class TestClass(object):
             writer.writerow(data[0].keys())
             for item in data:
                 writer.writerow(item.values())
+
+
+    my_first_method()
+    my_second_method
