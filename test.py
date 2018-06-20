@@ -9,8 +9,7 @@ class TestClass(object):
         self.bar = bar
         self.baz = baz
 
-    @staticmethod
-    def fizz_buzz(digit_1, digit_2):
+    def fizz_buzz(self, digit_1, digit_2):
         for i in range(1, 100):
             if i % digit_1 == 0:
                 if i % digit_2 == 0:
@@ -21,16 +20,27 @@ class TestClass(object):
                 print 'buzz!'
             else:
                 print i
+				
+    def add_timestamp(self, inarg):
+        import datetime
+        if isinstance (inarg, str):
+            current_dt = datetime.datetime.now()
+            return inarg + "_" +current_dt.strftime("%Y%m%d%H%M%S")
+        else:
+            return "In add_timestamp: argument is not a string"
+			
+    def more_timestamp(self, inarg):
+        import datetime
+        if isinstance (inarg, str):
+            longer_ts = datetime.datetime.now().timestamp()
+            decimal_part = longer_ts - int(longer_ts)
+            str_to_add = str(decimal_part)[2:]
+            str_to_return = inarg + str_to_add
+        else:
+            str_to_return = "In more_timestamp: argument is not a string"
+        return str_to_return
 
-    def oh_this_is_trouble(self, param1, param2):
-        """Oh man this fucntion is trouble"""
-        for i in range(20):
-            print 'trouble' + i * '!'
-            for j in range(10):
-                print i * j
-
-    @staticmethod
-    def json_to_csv(json_file_path, outfile_path):
+    def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
         What's a DictWriter, you say? Never heard of it!
@@ -38,7 +48,6 @@ class TestClass(object):
         """
         with open(json_file_path) as f:
             data = json.load(f)
-        fp = StringIO()
         with open(outfile_path, 'w') as fp:
             writer = csv.writer(fp)
             writer.writerow(data[0].keys())
