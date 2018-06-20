@@ -20,6 +20,25 @@ class TestClass(object):
                 print 'buzz!'
             else:
                 print i
+				
+    def add_timestamp(self, inarg):
+        import datetime
+        if isinstance (inarg, str):
+            current_dt = datetime.datetime.now()
+            return inarg + "_" +current_dt.strftime("%Y%m%d%H%M%S")
+        else:
+            return "In add_timestamp: argument is not a string"
+			
+    def more_timestamp(self, inarg):
+        import datetime
+        if isinstance (inarg, str):
+            longer_ts = datetime.datetime.now().timestamp()
+            decimal_part = longer_ts - int(longer_ts)
+            str_to_add = str(decimal_part)[2:]
+            str_to_return = inarg + str_to_add
+        else:
+            str_to_return = "In more_timestamp: argument is not a string"
+        return str_to_return
 
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
