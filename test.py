@@ -9,8 +9,7 @@ class TestClass(object):
         self.bar = bar
         self.baz = baz
 
-    @staticmethod
-    def fizz_buzz(digit_1, digit_2):
+    def fizz_buzz(self, digit_1, digit_2):
         for i in range(1, 100):
             if i % digit_1 == 0:
                 if i % digit_2 == 0:
@@ -22,15 +21,21 @@ class TestClass(object):
             else:
                 print i
 
-    def oh_this_is_trouble(self, param1, param2):
-        """Oh man this fucntion is trouble"""
-        for i in range(20):
-            print 'trouble' + i * '!'
-            for j in range(10):
-                print i * j
+    def even_numbers(self, number):
+        result = []
+        for i in range(0, number+1):
+            if i % 2 == 0:
+                result.append(i)
+        return result
 
-    @staticmethod
-    def json_to_csv(json_file_path, outfile_path):
+    def printVariables(self):
+        result = []
+        result.append(self.bar)
+        result.append(self.foo)
+        result.append(self.baz)
+        return result
+
+    def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
         What's a DictWriter, you say? Never heard of it!
