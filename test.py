@@ -21,6 +21,13 @@ class TestClass(object):
             else:
                 print i
 
+    def even_numbers(self, number):
+        result = []
+        for i in range(0, number+1):
+            if i % 2 == 0:
+                result.append(i)
+        return result
+
     def printVariables(self):
         result = []
         result.append(self.bar)
