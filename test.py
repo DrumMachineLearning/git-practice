@@ -21,6 +21,15 @@ class TestClass(object):
             else:
                 print i
 
+    def bubble_sort(self, alist):
+        length = len(alist) - 1
+        for i in range(0, length):
+            if alist[i] > alist[i + 1]:
+                # alist[i], alist[i+1] = alist[i+1], alist[i]  # python way
+                temp = alist[i]
+                alist[i] = alist[i + 1]
+                alist[i + 1] = temp
+
     def json_to_csv(self, json_file_path, outfile_path):
         """DictWriter has saved my life!!!
         """
