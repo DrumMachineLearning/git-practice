@@ -21,6 +21,13 @@ class TestClass(object):
             else:
                 print i
 
+    def print_method(self):
+        print self.foo
+        print self.bar
+        print self.baz
+        print "Done"
+        print "Bye"
+
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
