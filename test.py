@@ -21,6 +21,13 @@ class TestClass(object):
             else:
                 print i
 
+    def print_method(self):
+        print self.foo
+        print self.bar
+        print self.baz
+        print "Done"
+        print "Bye"
+
     def json_to_csv(self, json_file_path, outfile_path):
         """Convert a file containing a list of flat JSON objects to a csv.
 
@@ -34,3 +41,19 @@ class TestClass(object):
             writer.writerow(data[0].keys())
             for item in data:
                 writer.writerow(item.values())
+
+    def another_method(self, digit_1, digit_2):
+        for i in range(1, 100):
+            if i % digit_1 == 0:
+                if i % digit_2 == 0:
+                    print 'Hello There!'
+                else:
+                    print 'fizz!'
+            elif i % digit_2 == 0:
+                print 'Hi!'
+            else:
+                print i
+
+if __name__ == '__main__':
+    t = TestClass(1, 2, 3)
+    TestClass.fizz_buzz(3, 5)
